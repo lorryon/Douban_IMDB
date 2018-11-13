@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html>
+<title>Movie Ratings Project</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+<body class="w3-light-grey">
+
+<!-- w3-content defines a container for fixed size centered content,
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1400px">
+
+<!-- Header -->
+<header class="w3-container w3-center w3-padding-32">
+  <h1><b>Viewers' Bridge</b></h1>
+  <p>Welcome to the site of <span class="w3-tag">Viewers' Bridge</span></p>
+</header>
+
+<!-- Grid -->
+<div class="w3-row">
+
+<!-- Blog entries -->
+<div class="w3-col l8 s12">
+
+  <!-- Blog entry -->
+  <div class="w3-card-4 w3-margin w3-white">
+  <img src="/static/section_header_2.jpg" alt="box2 header" style="width:100%">
+    <div class="w3-container">
+      <h3><b>MOST REVIEWED GENRE</b></h3>
+      <h5><span class="w3-opacity">Top 10 most reviewed genre from IMDB.com and Douban.com</span></h5>
+    </div>
+    <div class="w3-container">
+      <p>Average number of reviews for movies and TV series in each genre represents how popular this genre is for viewers. The top 10 most reviewed genres are shown in the bar plot. One can see that the top 4 genres mostly overlap between the two sites, suggesting that they are universally popular across viewers from different countries.</p>
+      <img src="/static/fig1.png" alt="figure1" style="width:75%">
+      <p></p>
+      <p></p>
+    </div>
+  </div>
+
+  <!-- Blog entry -->
+  <div class="w3-card-4 w3-margin w3-white">
+    <img src="static/section_header.jpg" alt="box1 header" style="width:100%">
+    <div class="w3-container">
+      <h3><b>RATINGS BY GENRE</b></h3>
+      <h5><span class="w3-opacity">Ratings analysis by genre</span></h5>
+    </div>
+    <div class="w3-container">
+      <p>Ratings box plot by genre from Douban.com</p>
+      <img src="/static/fig2.png" alt="figure2" style="width:100%">
+      <p>Select from the dropdown menu below to show scatter plot of movie ratings from IMDB.com and Douban.com along with histogram of the ratings for each genre</p>
+      <form id='genre_form' method='post' action='plot' >
+        <div class="custom-select" style="width:200px">
+          <select name="genre" id="genre">
+            <option value="All Genre">All Genre</option>
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="War">War</option>
+            <option value="Family">Family</option>
+            <option value="Western">Western</option>
+            <option value="Biography">Biography</option>
+            <option value="Crime">Crime</option>
+            <option value="Mystery">Mystery</option>
+            <option value="History">History</option>
+            <option value="Thriller">Thriller</option>
+            <option value="Musical">Musical</option>
+            <option value="Romance">Romance</option>
+          </select>
+          <input type="submit" name="SUBMIT" value="SUBMIT"/>
+        </div>
+      </form>
+      <p></p>
+    </div>
+  </div>
+<hr>
+
+<!-- END BLOG ENTRIES -->
+</div>
+
+<!-- Introduction menu -->
+<div class="w3-col l4">
+  <!-- About Card -->
+  <div class="w3-card w3-margin w3-margin-top">
+    <div class="w3-container w3-padding">
+      <h4><b>Introduction</b></h4>
+    </div>
+    <div class="w3-container w3-white">
+      <p>Want to know how the ratings of movies and TV series differ from country to country?.</p>
+    </div>
+  </div><hr>
+
+  <!-- Posts -->
+  <div class="w3-card w3-margin">
+    <div class="w3-container w3-padding">
+      <h4><b>Project Outline</b></h4>
+    </div>
+    <ul class="w3-ul w3-hoverable w3-white">
+      <li class="w3-padding-16">
+        <img src="/static/data-source.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Data Source</span><br>
+        <span>Movie ratings for 7000 movies and TV series scraped from IMDB.com and Douban.com.</span>
+      </li>
+      <li class="w3-padding-16">
+        <img src="/static/pandas1.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Data Processing</span><br>
+        <span>Used Pandas DataFrame to clean, process and aggregate ratings data</span>
+      </li>
+      <li class="w3-padding-16 w3-hide-medium w3-hide-small">
+        <img src="/static/app-flask.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Web App</span><br>
+        <span>Built an interactive webapp using Flask for data visualization</span>
+      </li>
+      <li class="w3-padding-16">
+        <img src="/static/predictive-analysis.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Future Analysis</span><br>
+        <span>Gather more features (director and cast popularity, box office rate) and apply predictive analysis models</span>
+      </li>
+    </ul>
+  </div>
+  <hr>
+
+  <!-- Labels / tags -->
+  <div class="w3-card w3-margin">
+    <div class="w3-container w3-padding">
+      <h4>Tags</h4>
+    </div>
+    <div class="w3-container w3-white">
+    <p><span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">New York</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">London</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">IKEA</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">NORWAY</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">DIY</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Baby</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Family</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">News</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Clothing</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Shopping</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Sports</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Games</span>
+    </p>
+    </div>
+  </div>
+
+<!-- END Introduction Menu -->
+</div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END w3-content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+  <button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Previous</button>
+  <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next »</button>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+</body>
+</html>
